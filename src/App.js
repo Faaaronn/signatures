@@ -8,9 +8,9 @@ function App() {
   const [signature, setSignature] = useState('');
   const canvas = useRef(null);
   useEffect(() => {
-    setSignature(canvas.current.toDataURL());
     console.log(canvas.current.toDataURL());
-  }, [canvas]);
+    setSignature(canvas.current.toDataURL());
+  }, [canvas.current]);
   return (
     <div className='App'>
       <SignatureCanvas
@@ -18,14 +18,21 @@ function App() {
         canvasProps={{ width: 300, height: 150, className: 'sigCanvas' }}
       />
       <div className='buttons'>
-        <CopyToClipboard
-          text={signature}
-          onCopy={() => toast.success('Skopiowano podpis do schowka!')}>
-          <span className='button'>Skopiuj podpis</span>
-        </CopyToClipboard>
+        <span
+          className='button'
+          onClick={() => setSignature(canvas.current.toDataURL())}>
+          Potwierdź podpis
+        </span>
         <span className='button' onClick={() => canvas?.current?.clear()}>
           Wyczyść
         </span>
+        <CopyToClipboard
+          text={signature}
+          onCopy={() => {
+            toast.success('Skopiowano podpis do schowka!');
+          }}>
+          <span className='button'>Skopiuj podpis</span>
+        </CopyToClipboard>
       </div>
       <ToastContainer />
     </div>
