@@ -19,7 +19,9 @@ code {
   padding-top: 10vh;
 }
 .sigCanvas {
-  background: #dbdbdb;
+  /* background: #dbdbdb; */
+  background: transparent;
+  border: 2px solid black;
 }
 .button {
   margin-top: 2rem;
