@@ -15,7 +15,7 @@ function App() {
     <div className='App'>
       <SignatureCanvas
         ref={canvas}
-        canvasProps={{ width: 200, height: 200, className: 'sigCanvas' }}
+        canvasProps={{ width: 300, height: 150, className: 'sigCanvas' }}
       />
       <div className='buttons'>
         <CopyToClipboard
